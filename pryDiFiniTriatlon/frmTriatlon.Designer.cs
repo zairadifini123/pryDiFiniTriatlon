@@ -30,6 +30,9 @@
         {
             lblParticipantes = new Label();
             dgvParticipantes = new DataGridView();
+            Numero = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
+            Pais = new DataGridViewTextBoxColumn();
             lblPosiciones = new Label();
             dgvPosiciones = new DataGridView();
             Prueba = new DataGridViewTextBoxColumn();
@@ -48,12 +51,11 @@
             btnAsignarParticipantes = new Button();
             btnDeterminarGanadores = new Button();
             btnSalir = new Button();
-            Numero = new DataGridViewTextBoxColumn();
-            Nombre = new DataGridViewTextBoxColumn();
-            Pais = new DataGridViewTextBoxColumn();
+            picGanadores = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dgvParticipantes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPosiciones).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvGanadores).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picGanadores).BeginInit();
             SuspendLayout();
             // 
             // lblParticipantes
@@ -75,6 +77,24 @@
             dgvParticipantes.Name = "dgvParticipantes";
             dgvParticipantes.Size = new Size(617, 148);
             dgvParticipantes.TabIndex = 1;
+            // 
+            // Numero
+            // 
+            Numero.HeaderText = "Numero";
+            Numero.Name = "Numero";
+            Numero.Width = 125;
+            // 
+            // Nombre
+            // 
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.Width = 225;
+            // 
+            // Pais
+            // 
+            Pais.HeaderText = "Pais";
+            Pais.Name = "Pais";
+            Pais.Width = 225;
             // 
             // lblPosiciones
             // 
@@ -193,6 +213,7 @@
             btnAsignarParticipantes.TabIndex = 6;
             btnAsignarParticipantes.Text = "Asignar Participantes";
             btnAsignarParticipantes.UseVisualStyleBackColor = true;
+            btnAsignarParticipantes.Click += btnAsignarParticipantes_Click;
             // 
             // btnDeterminarGanadores
             // 
@@ -202,6 +223,7 @@
             btnDeterminarGanadores.TabIndex = 7;
             btnDeterminarGanadores.Text = "Determinar Ganadores";
             btnDeterminarGanadores.UseVisualStyleBackColor = true;
+
             // 
             // btnSalir
             // 
@@ -211,31 +233,24 @@
             btnSalir.TabIndex = 8;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
-            
+            btnSalir.Click += btnSalir_Click;
             // 
-            // Numero
+            // picGanadores
             // 
-            Numero.HeaderText = "Numero";
-            Numero.Name = "Numero";
-            Numero.Width = 125;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
-            Nombre.Width = 225;
-            // 
-            // Pais
-            // 
-            Pais.HeaderText = "Pais";
-            Pais.Name = "Pais";
-            Pais.Width = 225;
+            picGanadores.Image = Properties.Resources.ganadores;
+            picGanadores.Location = new Point(661, 340);
+            picGanadores.Name = "picGanadores";
+            picGanadores.Size = new Size(261, 250);
+            picGanadores.SizeMode = PictureBoxSizeMode.StretchImage;
+            picGanadores.TabIndex = 9;
+            picGanadores.TabStop = false;
             // 
             // frmTriatlon
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(958, 602);
+            Controls.Add(picGanadores);
             Controls.Add(btnSalir);
             Controls.Add(btnDeterminarGanadores);
             Controls.Add(btnAsignarParticipantes);
@@ -248,9 +263,11 @@
             Name = "frmTriatlon";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Triatlon";
+            Load += frmTriatlon_Load;
             ((System.ComponentModel.ISupportInitialize)dgvParticipantes).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPosiciones).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvGanadores).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picGanadores).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,5 +297,6 @@
         private DataGridViewTextBoxColumn Numero;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Pais;
+        private PictureBox picGanadores;
     }
 }
